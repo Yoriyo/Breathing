@@ -15,7 +15,6 @@ using System.Collections;
 public class SampleUserPolling_JustRead : MonoBehaviour
 {
     public SerialController serialController;
-
     // Initialization
     void Start()
     {
@@ -38,5 +37,6 @@ public class SampleUserPolling_JustRead : MonoBehaviour
             Debug.Log("Connection attempt failed or disconnection detected");
         else
             Debug.Log(x);
+
     }
 }
