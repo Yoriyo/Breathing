@@ -105,7 +105,7 @@ public class SerialController : MonoBehaviour
     // special messages that mark the start/end of the communication with the
     // device.
     // ------------------------------------------------------------------------
-    public void Update()
+    void Update()
     {
         // If the user prefers to poll the messages instead of receiving them
         // via SendMessage, then the message listener should be null.
@@ -114,7 +114,6 @@ public class SerialController : MonoBehaviour
 
         // Read the next message from the queue
         string message = (string)serialThread.ReadMessage();
-
         if (message == null)
             return;
 
