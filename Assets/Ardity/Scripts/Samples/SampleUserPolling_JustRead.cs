@@ -15,18 +15,23 @@ using System.Collections;
 public class SampleUserPolling_JustRead : MonoBehaviour
 {
     public SerialController serialController;
+    public GameObject Player;
+    public ThirdPersonCharacterControl component;
     // Initialization
+    public float x;
     void Start()
     {
         serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
-	}
+        // Player = GameObject.Find ("Player");
+        component = GetComponent<ThirdPersonCharacterControl>();
+    }
 
     // Executed each frame
     void Update()
     {
         string message = serialController.ReadSerialMessage();
-        float x;
         float.TryParse(message, out x);
+        x = x/2 + 1;
         if (message == null)
             return;
 
@@ -37,6 +42,8 @@ public class SampleUserPolling_JustRead : MonoBehaviour
             Debug.Log("Connection attempt failed or disconnection detected");
         else
             Debug.Log(x);
+            Debug.Log(component.Speed = x);
+            
 
     }
 }
