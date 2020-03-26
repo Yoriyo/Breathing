@@ -12,15 +12,29 @@ public class speedUI : MonoBehaviour
     public float speed;
     public Text text;
 
+    private Slider slider;
+
     void Start()
     {
         bird = GameObject.Find("/prefabs/bird");
         script = bird.GetComponent<ThirdPersonCharacterControl>();
         text = GetComponentInChildren<Text>();
+        slider = GetComponentInChildren<Slider>();
     }
     void Update()
     {
         speed = script.Speed;
-        text.text = "CODE : " + speed.ToString(); 
+        text.text = "VALUE: " + speed.ToString(); 
+        slider.value = speed;
+        
+        if (speed > 5);
+        {
+        // slider = Color.red;
+        // var fill = (slider as UnityEngine.UI.Slider).GetComponentsInChildren<UnityEngine.UI.Image>().FirstOrDefault(t => t.name == "Fill");
+        var fill = GameObject.Find("Fill").GetComponentInChildren<Image>();
+        fill.color = Color.Lerp(Color.green, Color.red, slider.value /8);
+        }
+    
     }
+    
 }

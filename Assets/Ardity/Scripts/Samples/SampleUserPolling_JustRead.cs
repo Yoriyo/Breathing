@@ -31,7 +31,7 @@ public class SampleUserPolling_JustRead : MonoBehaviour
     {
         string message = serialController.ReadSerialMessage();
         float.TryParse(message, out x);
-        x = x*2 + 3;
+        // x = x*2 + 3;
         if (message == null)
             return;
 
